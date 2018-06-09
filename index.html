@@ -24,7 +24,7 @@
   </head>
   <body class="container">
     <div class="card">
-      <video id="video" controls autoplay></video>
+      <video id="video" controls autoplay width="100%"></video>
       <div class="card-body">
         <h5 class="card-title">JS Media Player</h5>
         <p class="card-text">I realized that it would be faster to load file directly from web than download it to the local, 
@@ -37,7 +37,7 @@
         </div>
         <div>
           <label>Counter</label>
-          <span id="countDown" />
+          <span id="counter" />
         </div>
         <a href="#https://docs.evostream.com/sample_content/assets/bunny.mp4" target="_blank">#https://docs.evostream.com/sample_content/assets/bunny.mp4</a>
       </div>
@@ -49,16 +49,13 @@ let video = document.querySelector('#video');
 let url = location.hash.substring(location.hash.indexOf('#') + 1);
 video.src = url;
 
-console.log(url);
-
 let time = 0;
 setInterval(() => {
   time++;
-  document.querySelector('#countDown').innerHTML = time;
+  document.querySelector('#counter').innerHTML = time;
 }, 1000)
 
 video.onprogress = (e) => {
-  console.log('video.buffered.length', video.buffered.length)
   if (video.buffered.length) {
     var bufferedEnd = video.buffered.end(video.buffered.length - 1);
     var duration =  video.duration;
@@ -69,8 +66,6 @@ video.onprogress = (e) => {
     }
   }
 }
-
-      
       </script>
 </html>
 
