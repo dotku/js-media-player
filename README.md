@@ -1,2 +1,4 @@
-# js-media-player
-I realized that it would be faster to load file directly from web than download it to the local, so here is the project.
+# JS Media Player
+I realized that HTML5 Video is cached ready by preload feature by default. 
+      It is faster to load file directly from browser compare to download to the local. So I created 
+      this project to load the web videos.
