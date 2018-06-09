@@ -6,19 +6,6 @@
           integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" 
           crossorigin="anonymous">
     <style>
-  .buffered { 
-    height: 20px; 
-    position: relative;
-    background: #555;
-    width: 300px;
-    display: inline-block;
-  }
-  #buffered-amount {
-    display: block;
-    height: 100%;
-    background-color: lightblue;
-    width: 0;
-  }
 
 </style>
   </head>
@@ -31,9 +18,9 @@
           so here is the project.</p>
         <div>
           <label>Buffer</lable>
-        <span class="buffered">
-          <span id="buffered-amount"></span>
-        </span>
+          <div class="progress buffered">
+  <div class="progress-bar" id="buffered-amount" role="progressbar" aria-valuemax="100"></div>
+</div>
         </div>
         <div>
           <label>Counter</label>
