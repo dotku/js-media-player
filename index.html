@@ -5,9 +5,6 @@
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" 
           integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" 
           crossorigin="anonymous">
-    <style>
-
-</style>
   </head>
   <body class="container">
     <div class="card">
@@ -28,30 +25,28 @@
         <a href="#https://docs.evostream.com/sample_content/assets/bunny.mp4" target="_blank">#https://docs.evostream.com/sample_content/assets/bunny.mp4</a>
       </div>
     </div>
+    <script>
+      let video = document.querySelector('#video');
+      let url = location.hash.substring(location.hash.indexOf('#') + 1);
+      video.src = url;
+
+      let time = 0;
+      setInterval(() => {
+        time++;
+        document.querySelector('#counter').innerHTML = time;
+      }, 1000)
+
+      video.onprogress = (e) => {
+        if (video.buffered.length) {
+          var bufferedEnd = video.buffered.end(video.buffered.length - 1);
+          var duration =  video.duration;
+            console.log('bufferedEnd', bufferedEnd)
+          console.log('duration', duration)
+            if (duration > 0) {
+              document.getElementById('buffered-amount').style.width = ((bufferedEnd / duration)*100) + "%";
+          }
+        }
+      }
+    </script>
   </body>
-  
-<script>
-let video = document.querySelector('#video');
-let url = location.hash.substring(location.hash.indexOf('#') + 1);
-video.src = url;
-
-let time = 0;
-setInterval(() => {
-  time++;
-  document.querySelector('#counter').innerHTML = time;
-}, 1000)
-
-video.onprogress = (e) => {
-  if (video.buffered.length) {
-    var bufferedEnd = video.buffered.end(video.buffered.length - 1);
-    var duration =  video.duration;
-      console.log('bufferedEnd', bufferedEnd)
-    console.log('duration', duration)
-      if (duration > 0) {
-        document.getElementById('buffered-amount').style.width = ((bufferedEnd / duration)*100) + "%";
-    }
-  }
-}
-      </script>
 </html>
-
