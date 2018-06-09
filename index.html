@@ -22,7 +22,12 @@
           <label>Counter</label>
           <div id="counter">0</div>
         </div>
-        <a href="#https://docs.evostream.com/sample_content/assets/bunny.mp4" target="_blank">#https://docs.evostream.com/sample_content/assets/bunny.mp4</a>
+        <div>
+          <label>Sample URL</label>
+          <a href="#https://docs.evostream.com/sample_content/assets/bunny.mp4" target="_blank">
+            #https://docs.evostream.com/sample_content/assets/bunny.mp4
+          </a>
+        </div>
       </div>
     </div>
     <script>
@@ -40,9 +45,7 @@
         if (video.buffered.length) {
           var bufferedEnd = video.buffered.end(video.buffered.length - 1);
           var duration =  video.duration;
-            console.log('bufferedEnd', bufferedEnd)
-          console.log('duration', duration)
-            if (duration > 0) {
+          if (duration > 0) {
               document.getElementById('buffered-amount').style.width = ((bufferedEnd / duration)*100) + "%";
           }
         }
