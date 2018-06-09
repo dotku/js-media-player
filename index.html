@@ -5,29 +5,7 @@
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" 
           integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" 
           crossorigin="anonymous">
-  </head>
-  <body class="container">
-    <video id="video" controls autoplay></video>
-<div>
-  <label>Buffer</lable>
-<span class="buffered">
-  <span id="buffered-amount"></span>
-</span>
-</div>
-<div>
-  <label>Counter</label>
-  <span id="countDown" />
-</div>
-<div> Sample URL: 
-  <a href="#https://docs.evostream.com/sample_content/assets/bunny.mp4" target="_blank">#https://docs.evostream.com/sample_content/assets/bunny.mp4</a>
-</div>
-    <div>
-      <h3>Introduction</h3>
-      <p>I realized that it would be faster to load file directly from web than download it to the local, so here is the project.</p>
-    </div>
-  </body>
-</html>
-<style>
+    <style>
 video {
   max-height: 500px;
   min-width: 500px;
@@ -47,6 +25,29 @@ video {
   }
 
 </style>
+  </head>
+  <body class="container">
+    <div class="card" style="width: 18rem;">
+      <video id="video" controls autoplay></video>
+      <div class="card-body">
+        <h5 class="card-title">JS Media Player</h5>
+        <p class="card-text">I realized that it would be faster to load file directly from web than download it to the local, 
+          so here is the project.</p>
+        <div>
+          <label>Buffer</lable>
+        <span class="buffered">
+          <span id="buffered-amount"></span>
+        </span>
+        </div>
+        <div>
+          <label>Counter</label>
+          <span id="countDown" />
+        </div>
+        <a href="#https://docs.evostream.com/sample_content/assets/bunny.mp4" target="_blank">#https://docs.evostream.com/sample_content/assets/bunny.mp4</a>
+      </div>
+    </div>
+  </body>
+  
 <script>
 let video = document.querySelector('#video');
 let url = location.hash.substring(location.hash.indexOf('#') + 1);
@@ -79,3 +80,5 @@ video.onprogress = (e) => {
 
       
       </script>
+</html>
+
