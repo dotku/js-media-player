@@ -6,10 +6,6 @@
           integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" 
           crossorigin="anonymous">
     <style>
-video {
-  max-height: 500px;
-  min-width: 500px;
-}
   .buffered { 
     height: 20px; 
     position: relative;
@@ -70,10 +66,6 @@ video.onprogress = (e) => {
     console.log('duration', duration)
       if (duration > 0) {
         document.getElementById('buffered-amount').style.width = ((bufferedEnd / duration)*100) + "%";
-        setTimeout(() => {
-          video.play().then(_ => {});
-        })
-        
     }
   }
 }
