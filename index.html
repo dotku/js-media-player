@@ -1,0 +1,64 @@
+<video id="video" controls autoplay></video>
+<div>
+  <label>Buffer</lable>
+<span class="buffered">
+  <span id="buffered-amount"></span>
+</span>
+</div>
+<div>
+  <label>Counter</label>
+  <span id="countDown" />
+</div>
+<div> Sample URL: <a href="https://s.codepen.io/dotku/debug/jKyPxe/DqkDdKdyznDk#https://docs.evostream.com/sample_content/assets/bunny.mp4">https://s.codepen.io/dotku/debug/jKyPxe/DqkDdKdyznDk#https://docs.evostream.com/sample_content/assets/bunny.mp4</a></div>
+<style>
+video {
+  max-height: 500px;
+  min-width: 500px;
+}
+  .buffered { 
+    height: 20px; 
+    position: relative;
+    background: #555;
+    width: 300px;
+    display: inline-block;
+  }
+  #buffered-amount {
+    display: block;
+    height: 100%;
+    background-color: lightblue;
+    width: 0;
+  }
+
+</style>
+<script>
+let video = document.querySelector('#video');
+let url = location.hash.substring(location.hash.indexOf('#') + 1);
+video.src = url;
+
+console.log(url);
+
+let time = 0;
+setInterval(() => {
+  time++;
+  document.querySelector('#countDown').innerHTML = time;
+}, 1000)
+
+video.onprogress = (e) => {
+  console.log('video.buffered.length', video.buffered.length)
+  if (video.buffered.length) {
+    var bufferedEnd = video.buffered.end(video.buffered.length - 1);
+    var duration =  video.duration;
+      console.log('bufferedEnd', bufferedEnd)
+    console.log('duration', duration)
+      if (duration > 0) {
+        document.getElementById('buffered-amount').style.width = ((bufferedEnd / duration)*100) + "%";
+        setTimeout(() => {
+          video.play().then(_ => {});
+        })
+        
+    }
+  }
+}
+
+      
+      </script>
